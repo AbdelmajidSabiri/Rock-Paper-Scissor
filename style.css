@@ -40,18 +40,25 @@ body{
 }
 .option_image img{
     width: 50px;
+    pointer-events: none;
 }
 .option_images{
     display: flex;
     align-items: center;
     margin-top: 2.5rem;
     justify-content: space-between;
-}
 
+}
+.option_image:hover{
+    opacity: 1;
+}
 .option_image{
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
 }
 .option_image p{
     color: #7d2ae7;
