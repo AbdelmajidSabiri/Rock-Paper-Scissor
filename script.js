@@ -17,37 +17,44 @@ optionImages.forEach((image,index) =>{
             index !== index2 && image2.classList.remove("active");
         });
 
-        let imageSrc = e.target.querySelector("img").src;
-        userResult.src = imageSrc;
+        gameContainer.classList.add("start");
 
-        //generate random number between 0 and 2
-        let randomNumber = Math.floor(Math.random() * 3);
+        // Add delay
+        let time = setTimeout(() => {
 
-        //Set the cpu image to a random option from the array
-        let cpuImages = ["images/rock.png","images/paper.png","images/scissors.png"];
-        cpuResult.src = cpuImages[randomNumber];
-
-        //Assing letter values insted of words
-        let cpuValue = ["R", "P", "S"][randomNumber];
-        let userValue = ["R", "P", "S"][index];
-
-        // create an objects containes all possible outcomes
-        let outcomes = {
-            RR: "Draw",
-            RP: "Cpu",
-            RS: "User",
-            PP: "Draw",
-            PR: "User",
-            PS: "Cpu",
-            SS: "Draw",
-            SR: "Cpu",
-            SP: "User",
-        };
-
-        // set the outcome value
-        let outComeValue = outcomes[userValue + cpuValue];
-
-        //The result
-        result.textContent = userValue === cpuValue ? "Match Draw" : `${outComeValue} Won`
+            gameContainer.classList.remove("start");
+            let imageSrc = e.target.querySelector("img").src;
+            userResult.src = imageSrc;
+    
+            //generate random number between 0 and 2
+            let randomNumber = Math.floor(Math.random() * 3);
+    
+            //Set the cpu image to a random option from the array
+            let cpuImages = ["images/rock.png","images/paper.png","images/scissors.png"];
+            cpuResult.src = cpuImages[randomNumber];
+    
+            //Assing letter values insted of words
+            let cpuValue = ["R", "P", "S"][randomNumber];
+            let userValue = ["R", "P", "S"][index];
+    
+            // create an objects containes all possible outcomes
+            let outcomes = {
+                RR: "Draw",
+                RP: "Cpu",
+                RS: "User",
+                PP: "Draw",
+                PR: "User",
+                PS: "Cpu",
+                SS: "Draw",
+                SR: "Cpu",
+                SP: "User",
+            };
+    
+            // set the outcome value
+            let outComeValue = outcomes[userValue + cpuValue];
+    
+            //The result
+            result.textContent = userValue === cpuValue ? "Match Draw" : `${outComeValue} Won`
+        },2500)
     });
 });
