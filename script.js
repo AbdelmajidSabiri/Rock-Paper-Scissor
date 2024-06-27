@@ -18,12 +18,36 @@ optionImages.forEach((image,index) =>{
         });
 
         let imageSrc = e.target.querySelector("img").src;
-        userResult.src = imageSrc
+        userResult.src = imageSrc;
 
         //generate random number between 0 and 2
-        let randomNumber = Math.floor(Math.random() * 3)
+        let randomNumber = Math.floor(Math.random() * 3);
 
-        let cpuImages = ["images/paper.png","images/rock.png","images/scissors.png"];
+        //Set the cpu image to a random option from the array
+        let cpuImages = ["images/rock.png","images/paper.png","images/scissors.png"];
         cpuResult.src = cpuImages[randomNumber];
+
+        //Assing letter values insted of words
+        let cpuValue = ["R", "P", "S"][randomNumber];
+        let userValue = ["R", "P", "S"][index];
+
+        // create an objects containes all possible outcomes
+        let outcomes = {
+            RR: "Draw",
+            RP: "Cpu",
+            RS: "User",
+            PP: "Draw",
+            PR: "User",
+            PS: "Cpu",
+            SS: "Draw",
+            SR: "Cpu",
+            SP: "User",
+        };
+
+        // set the outcome value
+        let outComeValue = outcomes[userValue + cpuValue];
+
+        //The result
+        result.textContent = userValue === cpuValue ? "Match Draw" : `${outComeValue} Won`
     });
 });
