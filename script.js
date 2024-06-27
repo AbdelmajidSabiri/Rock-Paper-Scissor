@@ -22,5 +22,8 @@ optionImages.forEach((image,index) =>{
 
         //generate random number between 0 and 2
         let randomNumber = Math.floor(Math.random() * 3)
+
+        let cpuImages = ["images/paper.png","images/rock.png","images/scissors.png"];
+        cpuResult.src = cpuImages[randomNumber];
     });
 });
